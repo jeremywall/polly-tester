@@ -1,7 +1,22 @@
 extends layout
 
+block onready
+  script(type='text/javascript').
+    $(function() {
+      $('button#run').click(function() {
+          var data = {
+              text: $('textarea#text').val(),
+              password: $('input#password').val()
+          };
+          $.post('/polly/test', data)
+              .done(function (data) {
+                  console.log(data);
+              });
+      });
+    });
+
 block content
   h1 Polly Tester
-  form(method='POST' action='/polly/test')
-    textarea#text(name='text')
-    input(type='submit'  value='Run')
+  textarea#text
+  input#password
+  button#run Run

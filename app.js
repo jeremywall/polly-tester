@@ -5,6 +5,7 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var AWS = require('aws-sdk');
+var twilio = require('twilio')(process.env.TWILIOACCOUNTSID, process.env.TWILIOAUTHTOKEN);
 
 AWS.config.credentials = new AWS.Credentials(process.env.AWSKEY, process.env.AWSSECRET);
 AWS.config.region = 'us-east-1';
@@ -16,6 +17,7 @@ var polly = require('./routes/polly');
 var app = express();
 
 app.locals.AWS = AWS;
+app.locals.twilio = twilio;
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
