@@ -1,0 +1,7 @@
+extends layout
+
+block content
+  h1 Polly Tester
+  form(method='POST' action='/polly/test')
+    textarea#text(name='text')
+    input(type='submit'  value='Run')
