@@ -9,7 +9,7 @@ router.post('/test', function (req, res, next) {
         region: 'us-east-1'
     });
 
-    if (req.body.password !== process.env.BUCKETNAME) {
+    if (req.body.password !== process.env.PASSWORD) {
         res.json({status: 'bad password'});
     }
 
