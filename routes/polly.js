@@ -64,8 +64,8 @@ router.post('/test', function (req, res, next) {
                             console.log('putObject xml ok');
                             twilio.calls.create({
                                 url: 'https://s3.amazonaws.com/' + bucketName + '/' + ts + '.xml',
-                                to: '+' + req.body.to,
-                                from: '+' + req.body.from,
+                                to: req.body.to,
+                                from: req.body.from,
                                 method: 'GET'
                             }, function (err, call) {
                                 if (err) {
