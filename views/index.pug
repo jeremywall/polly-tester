@@ -6,8 +6,8 @@ block onready
       $('button#run').click(function() {
           var data = {
               message: $('textarea#message').val(),
-              to: $('textarea#to').val(),
-              from: $('textarea#from').val(),
+              to: $('input#to').val(),
+              from: $('input#from').val(),
               password: $('input#password').val()
           };
           $.post('/polly/test', data)
