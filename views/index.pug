@@ -5,7 +5,9 @@ block onready
     $(function() {
       $('button#run').click(function() {
           var data = {
-              text: $('textarea#text').val(),
+              message: $('textarea#message').val(),
+              to: $('textarea#to').val(),
+              from: $('textarea#from').val(),
               password: $('input#password').val()
           };
           $.post('/polly/test', data)
@@ -17,6 +19,8 @@ block onready
 
 block content
   h1 Polly Tester
-  textarea#text
-  input#password
+  textarea#message(placeholder='Message')
+  input#to(type='text', placeholder='To phone number')
+  input#from(type='text', placeholder='From phone number')
+  input#password(type='password', placeholder='Password')
   button#run Run
